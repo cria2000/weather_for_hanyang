@@ -1,0 +1,80 @@
+.weather_list_modal{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.weather_list_page{
+    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+}
+
+.weather_list_modal::-webkit-scrollbar,
+.weather_list_page::-webkit-scrollbar{
+    display: none;
+}
+
+.weather_list_modal .button_container{
+    width: 90vw;
+    height: 30px;
+    display: flex;
+}
+
+.weather_list_modal .button_back{
+    background: url("./svg/Down.svg") no-repeat;
+    transform: rotate(90deg);
+    width: 20px;
+    height: 20px;
+    border: none;
+}
+
+.weather_list_modal .choose_statement{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    line-height: 30pt;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #6A30FA;
+}
+
+.weather_list_modal .list_container{
+    width: 80vw;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 15px 0 rgba(160, 170, 185, 0.6);
+}
+
+.weather_list_modal .weather_list .weather_data,
+.weather_list_modal .clothes_list .cloth_data{
+    height: 30px;
+    border: none;
+    margin: 3px;
+    background: rgba(155, 230, 235, 0.2);
+}
+
+.selected{
+    background: #E2D8E8 !important;
+}
+
+.weather_list_modal .button_send{
+    position: fixed;
+    bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #6A30FA;
+    font-size: 12pt;
+    font-weight: bolder;
+    color: white;
+    width: 120px;
+    height: 35px;
+    box-shadow: 0 1px 15px 0 rgba(176, 188, 207, 0.4);
+}
