@@ -5,17 +5,25 @@ import {clothesPantsMap, clothesTopMap} from "./ClothesPreset";
 import './styles/WeatherListModal.css'
 import {HighlightSpan} from "./component/HighlightSpan";
 import {useNavigate} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import ReactGA from 'react-ga';
 
 type Props = {
 };
 export const WeatherListPage = ({}: Props) => {
+    const TRACKING_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID ?? ''
     const navigation = useNavigate()
 
     const [selectedTag, setSelectedTag] = useState<number>()
     const [selectedTop, setSelectedTop] = useState<number>()
     const [selectedPants, setSelectedPants] = useState<number>()
     const [selectedBringOuter, setSelectedBringOuter] = useState<boolean>()
+
+    useEffect(() => {
+        ReactGA.initialize(TRACKING_ID);
+        ReactGA.set({page: window.location.pathname});
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, []);
 
 
     const handleClickWeatherTag = (weatherTag: number) => () => {
@@ -36,6 +44,14 @@ export const WeatherListPage = ({}: Props) => {
 
     const handleClickBack = () => {
         navigation('/')
+    }
+
+    const handleClickSendButton = () => {
+        ReactGA.event({
+            category: "Event",
+            action: "click send button",
+            label: `${selectedTag} ${selectedTop} ${selectedPants} ${selectedBringOuter}`
+        })
     }
 
     return (
@@ -81,7 +97,7 @@ export const WeatherListPage = ({}: Props) => {
                         <button className={`outer_data ${selectedBringOuter ? 'selected': ''}`} onClick={handleClickBringOuter(true)}> {messages.bringOuter}</button>
                         <button className={`outer_data ${selectedBringOuter === false ? 'selected' : ''}`} onClick={handleClickBringOuter(false)}>{messages.notBringOuter}</button>
                     </div>
-                    <button className="button_send">{messages.sendOpinion}</button>
+                    <button className="button_send" onClick={handleClickSendButton}>{messages.sendOpinion}</button>
                 </div>
     );
 };
