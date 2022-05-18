@@ -9,19 +9,19 @@
 .main_clothes .main_clothes_statement{
     white-space: pre-wrap;
     font-weight: 600;
-    font-size: 12pt;
+    font-size: 15pt;
     line-height: 20pt;
     color: #E3FFFE;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .main_weather .main_weather_icon{
-    font-size: 20pt;
-    padding: 10px;
+    font-size: 25pt;
+    padding: 15px;
 }
 
 .main_weather .weather_result{
-    font-size: 12pt;
+    font-size: 15pt;
     padding: 10px;
     color: #F4EFD9;
 }
@@ -39,22 +39,22 @@
     background: rgba(218, 230, 232, 0.2);
     height: 140px;
     border-radius: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .main_clothes .most_chosen_clothes{
-    height: 120px;
+    height: 130px;
 }
 
 .main_clothes .bring_outer{
-    height: 95px;
+    height: 105px;
 }
 
 .main_clothes .main_clothes_title{
     display: flex;
     align-items: start;
     color: #45454D;
-    font-size: 9pt;
+    font-size: 10pt;
     width: 95%;
     padding: 5px;
     font-weight: 600;
@@ -76,6 +76,6 @@
     width: 180px;
     border-radius: 5px;
     box-shadow: 0 2px 3px 0 rgba(160, 170, 185, 1);
-    margin-top: 15px;
+    margin-top: 30px;
 }
 

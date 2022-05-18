@@ -11,7 +11,7 @@ export const MainWeather = ({mainWeather, secondWeather}: Props) => {
         <div className="main_weather">
             <div className="main_weather_statement">
                 <div>
-                    {messages.announceMainWeather.concat('\n')}
+                    {messages.announceMainWeather.concat(' ').concat(weatherMap.get(mainWeather)?.weather ?? '').concat('!\n')}
                 </div>
                 <div className="main_weather_icon">
                     {weatherMap.get(mainWeather)?.icon}
