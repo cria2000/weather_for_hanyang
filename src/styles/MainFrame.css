@@ -2,21 +2,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 30px;
 }
 
 .main_weather .main_weather_statement,
 .main_clothes .main_clothes_statement{
     white-space: pre-wrap;
-    font-weight: bold;
-    font-size: 17pt;
-    line-height: 30pt;
+    font-weight: 600;
+    font-size: 12pt;
+    line-height: 20pt;
     color: #E3FFFE;
+    margin-top: 5px;
 }
 
+.main_weather .main_weather_icon{
+    font-size: 20pt;
+    padding: 10px;
+}
 
 .main_weather .weather_result{
-    font-size: 20pt;
-    padding: 20px;
+    font-size: 12pt;
+    padding: 10px;
     color: #F4EFD9;
 }
 
@@ -24,11 +30,24 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.main_clothes .most_chosen_clothes,
+.main_clothes .bring_outer{
     width: 90vw;
     background: rgba(218, 230, 232, 0.2);
-    height: 100px;
+    height: 140px;
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.main_clothes .most_chosen_clothes{
+    height: 120px;
+}
+
+.main_clothes .bring_outer{
+    height: 95px;
 }
 
 .main_clothes .main_clothes_title{
@@ -36,13 +55,27 @@
     align-items: start;
     color: #45454D;
     font-size: 9pt;
+    width: 95%;
+    padding: 5px;
+    font-weight: 600;
+}
+
+.main_clothes .border_line{
+    width: 85vw;
+    height: 1px;
+    background: #45454D;
+    opacity: 0.1;
 }
 
 .weather_button{
-    font-size: 12pt;
+    font-size: 10pt;
+    font-weight: 600;
+    color: #45454D;
     border: none;
     height: 35px;
-    width: 220px;
+    width: 180px;
     border-radius: 5px;
+    box-shadow: 0 2px 3px 0 rgba(160, 170, 185, 1);
+    margin-top: 15px;
 }
 

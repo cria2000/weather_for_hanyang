@@ -1,21 +1,32 @@
 import * as React from 'react';
 import messages from "./constant/messages";
-import {clothesMap} from "./ClothesPreset";
-import {Box} from "@material-ui/core";
+import {clothesPantsMap, clothesTopMap} from "./ClothesPreset";
 
 type Props = {
-    clothes: number
+    top: number
+    pants: number
+    bringOuter: boolean
     percentage: number
 };
-export const MainClothes = ({clothes, percentage}: Props) => {
+export const MainClothes = ({top, pants, bringOuter, percentage}: Props) => {
     return (
         <div className="main_clothes">
-            <div className="main_clothes_title">{messages.chosenClothesTitle}</div>
-            <Box className="border_line"/>
-            <div className="main_clothes_statement">
-                {messages.announceMostChosenClothes(
-                    {mostChosenClothes: clothesMap.get(clothes)?.name ?? '',
+            <div className="most_chosen_clothes">
+                <div className="main_clothes_title">{messages.chosenClothesTitle}</div>
+                <div className="border_line" />
+                    <div className="main_clothes_statement">
+                    {messages.announceMostChosenClothes(
+                    {mostChosenTop: clothesTopMap.get(top)?.name ?? '',
+                        mostChosenPants: clothesPantsMap.get(pants)?.name ?? '',
                     percentage: percentage})}
+                </div>
+            </div>
+            <div className="bring_outer">
+                <div className="main_clothes_title">{messages.considerOuter}</div>
+                <div className="border_line" />
+                <div className="main_clothes_statement">
+                    {messages.announceBringOuter({isBring: bringOuter, percentage: percentage})}
+                </div>
             </div>
         </div>
     );

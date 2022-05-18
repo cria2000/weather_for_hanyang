@@ -9,12 +9,12 @@ type Props = {
 export const MainWeather = ({mainWeather, secondWeather}: Props) => {
     return (
         <div className="main_weather">
-            <div className="main_weather_icon">
-                {weatherMap.get(mainWeather)?.icon}
-            </div>
             <div className="main_weather_statement">
                 <div>
                     {messages.announceMainWeather.concat('\n')}
+                </div>
+                <div className="main_weather_icon">
+                    {weatherMap.get(mainWeather)?.icon}
                 </div>
                 <div className="weather_result">
                 {'#'.concat(weatherMap.get(mainWeather)?.hashTag?? messages.getReadyToAnnounce).concat(`\n`)}

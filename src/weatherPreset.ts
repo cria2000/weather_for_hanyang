@@ -7,7 +7,7 @@ export type WeatherDataType = {
 
 export const weatherMap = new Map<number, WeatherDataType>(
     [[0, {id: 0, hashTag: '맑은날씨더멋진사자상', icon: '🌞🦁'}],
-            [1, {id: 1, hashTag: '당장달려가자서울숲으로', icon: '🌲☀'}],
+            [1, {id: 1, hashTag: '당장달려가자서울숲으로', icon: '🌲🌞'}],
             [2, {id: 2, hashTag: '인문대오르다보니땀이', icon: '💧'}],
             [3, {id: 3, hashTag: '습하고꿉꿉한중도', icon: '🌦'}],
             [4, {id: 4, hashTag: '통학러울게만드는축축2호선', icon: '🚎🌂'}],

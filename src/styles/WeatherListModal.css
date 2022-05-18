@@ -3,7 +3,7 @@
     align-items: center;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     overflow: auto;
     border-radius: 3px;
     padding: 10px;
@@ -21,7 +21,7 @@
 }
 
 .weather_list_modal .button_container{
-    width: 90vw;
+    width: 100vw;
     height: 30px;
     display: flex;
 }
@@ -39,7 +39,7 @@
     display: flex;
     justify-content: center;
     line-height: 30pt;
-    font-size: 12pt;
+    font-size: 10pt;
     font-weight: bold;
     color: #6A30FA;
 }
@@ -47,19 +47,21 @@
 .weather_list_modal .list_container{
     width: 80vw;
     background: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     box-shadow: 0 3px 15px 0 rgba(160, 170, 185, 0.6);
 }
 
 .weather_list_modal .weather_list .weather_data,
-.weather_list_modal .clothes_list .cloth_data{
+.weather_list_modal .clothes_list .cloth_data,
+.outer_data{
     height: 30px;
     border: none;
     margin: 3px;
     background: rgba(155, 230, 235, 0.2);
 }
+
 
 .selected{
     background: #E2D8E8 !important;
@@ -67,7 +69,7 @@
 
 .weather_list_modal .button_send{
     position: fixed;
-    bottom: 10px;
+    bottom: 30px;
     border: none;
     border-radius: 5px;
     background: #6A30FA;
