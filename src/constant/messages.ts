@@ -19,5 +19,7 @@ export default {
     chosenClothesTitle: ' 👕 오늘 많이 선택된 옷차림',
     bringOuter: '🙆 저녁에는 쌀쌀하니 챙겨요!',
     notBringOuter: '🙅 ‍챙기지 않아도 괜찮아요!',
-    considerOuter: ' 🧥 겉옷 챙길까 말까?'
+    considerOuter: ' 🧥 겉옷 챙길까 말까?',
+    sendSuccess: '의견이 성공적으로 보내졌습니다✔',
+    sendFail: '모든 버튼을 선택해주세요❕'
 }

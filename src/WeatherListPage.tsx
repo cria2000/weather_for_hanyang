@@ -14,16 +14,27 @@ export const WeatherListPage = ({}: Props) => {
     const TRACKING_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID ?? ''
     const navigation = useNavigate()
 
-    const [selectedTag, setSelectedTag] = useState<number>()
-    const [selectedTop, setSelectedTop] = useState<number>()
-    const [selectedPants, setSelectedPants] = useState<number>()
-    const [selectedBringOuter, setSelectedBringOuter] = useState<boolean>()
+    const [selectedTag, setSelectedTag] = useState<number | undefined>(undefined)
+    const [selectedTop, setSelectedTop] = useState<number | undefined>(undefined)
+    const [selectedPants, setSelectedPants] = useState<number | undefined>(undefined)
+    const [selectedBringOuter, setSelectedBringOuter] = useState<boolean | undefined>(undefined)
+
+    const [isNotifyBarOpen, setIsNotifyBarOpen] = useState<{open: boolean, message: string, className: string}>({open: false, message: '', className: ''})
+
 
     useEffect(() => {
         ReactGA.initialize(TRACKING_ID);
         ReactGA.set({page: window.location.pathname});
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, []);
+
+
+    useEffect(() => {
+        if (isNotifyBarOpen)
+            setTimeout(() => {
+                setIsNotifyBarOpen({open: false, message: '', className: ''})
+            }, 2000)
+    }, [isNotifyBarOpen])
 
 
     const handleClickWeatherTag = (weatherTag: number) => () => {
@@ -47,11 +58,19 @@ export const WeatherListPage = ({}: Props) => {
     }
 
     const handleClickSendButton = () => {
-        ReactGA.event({
-            category: "Event",
-            action: "click send button",
-            label: `${selectedTag} ${selectedTop} ${selectedPants} ${selectedBringOuter}`
-        })
+        if(selectedTag !== undefined
+            && selectedTop !== undefined
+            && selectedPants !== undefined
+            && selectedBringOuter !== undefined){
+            ReactGA.event({
+                category: "Event",
+                action: "click send button",
+                label: `${selectedTag} ${selectedTop} ${selectedPants} ${selectedBringOuter}`
+            })
+            setIsNotifyBarOpen({open: true, message: messages.sendSuccess, className: 'send_success'})
+        }else{
+            setIsNotifyBarOpen({open: true, message: messages.sendFail, className: 'send_fail' })
+        }
     }
 
     return (
@@ -98,6 +117,9 @@ export const WeatherListPage = ({}: Props) => {
                         <button className={`outer_data ${selectedBringOuter === false ? 'selected' : ''}`} onClick={handleClickBringOuter(false)}>{messages.notBringOuter}</button>
                     </div>
                     <button className="button_send" onClick={handleClickSendButton}>{messages.sendOpinion}</button>
+                    {isNotifyBarOpen.open && <div className="send_bar">
+                        <div className={`send_bar_content ${isNotifyBarOpen.className}`}>{isNotifyBarOpen.message}</div>
+                    </div>}
                 </div>
     );
 };

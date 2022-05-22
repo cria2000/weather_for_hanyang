@@ -81,3 +81,30 @@
     height: 35px;
     box-shadow: 0 1px 15px 0 rgba(176, 188, 207, 0.4);
 }
+
+.send_bar{
+    position: fixed;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.send_bar_content{
+    color: white;
+    box-shadow: 0 1px 15px 0 rgba(176, 188, 207, 0.4);
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.send_success{
+    background: #73d418;
+}
+
+.send_fail{
+    background: red;
+}
