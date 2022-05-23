@@ -22,6 +22,6 @@ export default {
     notBringOuter: '🙅 ‍챙기지 않아도 괜찮아요!',
     considerOuter: ' 🧥 겉옷 챙길까 말까?',
     sendSuccess: '의견이 성공적으로 보내졌습니다✔',
-    sendFail: '모든 버튼을 선택해주세요❕',
+    sendFail: '날씨 키워드를 하나 이상 선택해주세요❕',
     possibleMultipleSelection: '(중복선택가능)'
 }

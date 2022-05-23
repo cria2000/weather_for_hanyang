@@ -63,19 +63,16 @@ export const WeatherListPage = ({}: Props) => {
     }
 
     const handleClickSendButton = () => {
-        // if(selectedTag?.length !== 0
-        //     && selectedTop !== undefined
-        //     && selectedPants !== undefined
-        //     && selectedBringOuter !== undefined){
+        if(selectedTag?.length !== 0){
             ReactGA.event({
                 category: "Event",
                 action: "click send button",
                 label: `selectedTag: (${selectedTag}) ${selectedTop} ${selectedPants} ${selectedBringOuter}`
             })
             setIsNotifyBarOpen({open: true, message: messages.sendSuccess, className: 'send_success'})
-        // }else{
-        //     setIsNotifyBarOpen({open: true, message: messages.sendFail, className: 'send_fail' })
-        // }
+        }else{
+            setIsNotifyBarOpen({open: true, message: messages.sendFail, className: 'send_fail' })
+        }
     }
 
     return (
