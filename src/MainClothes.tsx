@@ -6,9 +6,11 @@ type Props = {
     top: number
     pants: number
     bringOuter: boolean
-    percentage: number
+    topPercentage: number
+    pantsPercentage: number
+    bringOuterPercentage: number
 };
-export const MainClothes = ({top, pants, bringOuter, percentage}: Props) => {
+export const MainClothes = ({top, pants, bringOuter, topPercentage, pantsPercentage, bringOuterPercentage}: Props) => {
     return (
         <div className="main_clothes">
             <div className="most_chosen_clothes">
@@ -18,14 +20,14 @@ export const MainClothes = ({top, pants, bringOuter, percentage}: Props) => {
                     {messages.announceMostChosenClothes(
                     {mostChosenTop: clothesTopMap.get(top)?.name ?? '',
                         mostChosenPants: clothesPantsMap.get(pants)?.name ?? '',
-                    percentage: percentage})}
+                        topPercentage: topPercentage, pantsPercentage: pantsPercentage})}
                 </div>
             </div>
             <div className="bring_outer">
                 <div className="main_clothes_title">{messages.considerOuter}</div>
                 <div className="border_line" />
                 <div className="main_clothes_statement">
-                    {messages.announceBringOuter({isBring: bringOuter, percentage: percentage})}
+                    {messages.announceBringOuter({isBring: bringOuter, percentage: bringOuterPercentage})}
                 </div>
             </div>
         </div>

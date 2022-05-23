@@ -1,7 +1,8 @@
 export default {
     announceMainWeather: `오늘 하냥인들의 날씨는`,
-    announceMostChosenClothes: ({mostChosenTop, mostChosenPants, percentage}: {mostChosenTop: string, mostChosenPants: string, percentage: number}) =>
-        `오늘 ${percentage}%의 하냥인들은\n ${mostChosenTop} + ${mostChosenPants}를\n선택했어요!`,
+    announceMostChosenClothes: ({mostChosenTop, mostChosenPants, topPercentage, pantsPercentage}:
+                                    {mostChosenTop: string, mostChosenPants: string, topPercentage: number, pantsPercentage: number}) =>
+        `오늘 ${topPercentage}%의 하냥인들은 \n ${mostChosenTop}를 선택했고, \n\n${pantsPercentage}%의 하냥인들은 \n${mostChosenPants}를 선택했어요!`,
     announceBringOuter: ({isBring, percentage}:{isBring: boolean, percentage: number}) => {
         if(isBring){
             return `오늘 ${percentage}%의 하냥인들은\n 겉옷을 챙겼어요!`
