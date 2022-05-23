@@ -23,5 +23,6 @@ export default {
     considerOuter: ' 🧥 겉옷 챙길까 말까?',
     sendSuccess: '의견이 성공적으로 보내졌습니다✔',
     sendFail: '날씨 키워드를 하나 이상 선택해주세요❕',
-    possibleMultipleSelection: '(중복선택가능)'
+    possibleMultipleSelection: '(중복선택가능)',
+    halfBringOuter: `50%의 하냥인은 겉옷을 챙겼고, \n나머지 50%는 챙기지 않았어요!`
 }

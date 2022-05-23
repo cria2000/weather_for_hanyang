@@ -27,7 +27,7 @@ export const MainClothes = ({top, pants, bringOuter, topPercentage, pantsPercent
                 <div className="main_clothes_title">{messages.considerOuter}</div>
                 <div className="border_line" />
                 <div className="main_clothes_statement">
-                    {messages.announceBringOuter({isBring: bringOuter, percentage: bringOuterPercentage})}
+                    {bringOuterPercentage === 50 ? messages.halfBringOuter : messages.announceBringOuter({isBring: bringOuter, percentage: bringOuterPercentage})}
                 </div>
             </div>
         </div>

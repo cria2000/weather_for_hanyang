@@ -15,8 +15,8 @@ export const MainPage = (props: Props) => {
 
     return (
         <div className="main_page">
-            <MainWeather mainWeather={11} secondWeather={2}/>
-            <MainClothes top={1} pants={4} bringOuter topPercentage={64} pantsPercentage={36} bringOuterPercentage={55}/>
+            <MainWeather mainWeather={11} secondWeather={12}/>
+            <MainClothes top={1} pants={4} bringOuter topPercentage={58} pantsPercentage={42} bringOuterPercentage={50}/>
             <button className="weather_button" onClick={handleClickButton}>{messages.askOpinion}</button>
         </div>
     );
