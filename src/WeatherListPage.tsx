@@ -14,7 +14,7 @@ export const WeatherListPage = ({}: Props) => {
     const TRACKING_ID = process.env.REACT_APP_GOOGLE_ANALYTICS_TRACKING_ID ?? ''
     const navigation = useNavigate()
 
-    const [selectedTag, setSelectedTag] = useState<number | undefined>(undefined)
+    const [selectedTag, setSelectedTag] = useState<number[] | undefined>([])
     const [selectedTop, setSelectedTop] = useState<number | undefined>(undefined)
     const [selectedPants, setSelectedPants] = useState<number | undefined>(undefined)
     const [selectedBringOuter, setSelectedBringOuter] = useState<boolean | undefined>(undefined)
@@ -38,8 +38,13 @@ export const WeatherListPage = ({}: Props) => {
 
 
     const handleClickWeatherTag = (weatherTag: number) => () => {
-        setSelectedTag(weatherTag)
+        if(selectedTag?.includes(weatherTag)){
+            setSelectedTag(selectedTag?.filter(tag => tag !== weatherTag))
+        }else{
+            setSelectedTag(selectedTag?.concat([weatherTag]))
+        }
     }
+
 
     const handleClickTop = (top: number) => () => {
         setSelectedTop(top)
@@ -58,14 +63,14 @@ export const WeatherListPage = ({}: Props) => {
     }
 
     const handleClickSendButton = () => {
-        if(selectedTag !== undefined
+        if(selectedTag?.length !== 0
             && selectedTop !== undefined
             && selectedPants !== undefined
             && selectedBringOuter !== undefined){
             ReactGA.event({
                 category: "Event",
                 action: "click send button",
-                label: `${selectedTag} ${selectedTop} ${selectedPants} ${selectedBringOuter}`
+                label: `selectedTag: (${selectedTag}) ${selectedTop} ${selectedPants} ${selectedBringOuter}`
             })
             setIsNotifyBarOpen({open: true, message: messages.sendSuccess, className: 'send_success'})
         }else{
@@ -79,10 +84,10 @@ export const WeatherListPage = ({}: Props) => {
                     <button className="button_back" onClick={handleClickBack} />
                     </div>
                     <div className="list_container">
-                        <div className="choose_statement">{messages.chooseWeatherKeyword}</div>
+                        <div className="choose_statement">{messages.chooseWeatherKeyword.concat(`\n`).concat(messages.possibleMultipleSelection)}</div>
                         <div className="weather_list">
                         {[...weatherMap?.values()]?.map(weather =>
-                            <button key={`${weather?.id}_${weather?.hashTag}`} className={`weather_data ${selectedTag === weather.id ? 'selected': ''}`}
+                            <button key={`${weather?.id}_${weather?.hashTag}`} className={`weather_data ${selectedTag?.includes(weather.id) ? 'selected': ''}`}
                             onClick={handleClickWeatherTag(weather?.id)}
                             >
                             <HighlightSpan
