@@ -15,7 +15,8 @@ export const clothesTopMap = new Map<number, ClothesDataType>([
     [9, {id: 9, name: '후드집업'}],
     [10, {id: 10, name: '가죽자켓'}],
     [11, {id: 11, name: '패딩'}],
-    [12, {id: 12, name: '셔츠'}]
+    [12, {id: 12, name: '셔츠'}],
+    [13, {id: 13, name: '반팔니트'}]
 ])
 
 export const clothesPantsMap = new Map<number, ClothesDataType>([
